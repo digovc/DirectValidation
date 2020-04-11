@@ -54,7 +54,7 @@ namespace Validation.Validators
 
         public StringValidator Match(string pattern, string error = DefaultError)
         {
-            Execute(() => Regex.Match(GetValue<string>(), pattern).Success, error);
+            Execute(() => Regex.IsMatch(GetValue<string>(), pattern), error);
             return this;
         }
 
@@ -90,7 +90,7 @@ namespace Validation.Validators
 
         public StringValidator NotMatch(string pattern, string error = DefaultError)
         {
-            Execute(() => !Regex.Match(GetValue<string>(), pattern).Success, error);
+            Execute(() => !Regex.IsMatch(GetValue<string>(), pattern), error);
             return this;
         }
 
