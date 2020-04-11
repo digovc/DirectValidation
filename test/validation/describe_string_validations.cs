@@ -18,9 +18,8 @@ namespace Test
 
         public void it_validate_match()
         {
-            "test@email.com".Validate().Match(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
-            //"a".Validate().Match("");
-            //new Action(() => "testemailcom".Validate().Match("*@*.*")).Should().Throw<ValidationException>();
+            "test@email.com".Validate().Match(Patterns.EmailPattern);
+            new Action(() => "testemailcom".Validate().Match(Patterns.EmailPattern)).Should().Throw<ValidationException>();
         }
 
         public void it_validate_not_be()
