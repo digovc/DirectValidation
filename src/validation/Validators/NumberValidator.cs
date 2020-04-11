@@ -14,6 +14,20 @@
             return this;
         }
 
+        public NumberValidator BeBetween(decimal minValue, decimal maxValue, string error = DefaultError)
+        {
+            var value = GetValue<decimal>();
+            Execute(() => value > minValue && value < maxValue, error);
+            return this;
+        }
+
+        public NumberValidator BeBetweenOrEqualTo(decimal minValue, decimal maxValue, string error = DefaultError)
+        {
+            var value = GetValue<decimal>();
+            Execute(() => value >= minValue && value <= maxValue, error);
+            return this;
+        }
+
         public NumberValidator BeGreaterOrEqualTo(decimal value, string error = DefaultError)
         {
             Execute(() => GetValue<decimal>() >= value, error);

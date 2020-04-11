@@ -20,12 +20,18 @@ namespace Validation
 
         public static NumberValidator Validate(this int value) => new NumberValidator(value);
 
+        public static NumberValidator Validate(this uint value) => new NumberValidator(value);
+
         public static NumberValidator Validate(this long value) => new NumberValidator(value);
+
+        public static NumberValidator Validate(this ulong value) => new NumberValidator(value);
 
         public static NumberValidator Validate(this short value) => new NumberValidator(value);
 
+        public static NumberValidator Validate(this ushort value) => new NumberValidator(value);
+
         public static StringValidator Validate(this string value) => new StringValidator(value);
-        
+
         public static EnumerableValidator Validate(this IEnumerable<object> value) => new EnumerableValidator(value);
     }
 }

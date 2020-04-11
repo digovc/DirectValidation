@@ -46,6 +46,20 @@ namespace Validation.Validators
             return this;
         }
 
+        public StringValidator HaveLengthBetween(int minLength, int maxLength, string error = DefaultError)
+        {
+            var lenght = GetValue<string>()?.Length;
+            Execute(() => lenght > minLength && lenght < maxLength, error);
+            return this;
+        }
+
+        public StringValidator HaveLengthBetweenOrEqualTo(int minLength, int maxLength, string error = DefaultError)
+        {
+            var lenght = GetValue<string>()?.Length;
+            Execute(() => lenght >= minLength && lenght <= maxLength, error);
+            return this;
+        }
+
         public StringValidator HaveMinLength(int length, string error = DefaultError)
         {
             Execute(() => GetValue<string>()?.Length >= length, error);
