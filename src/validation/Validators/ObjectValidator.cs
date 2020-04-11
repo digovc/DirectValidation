@@ -41,8 +41,13 @@ namespace Validation.Validators
         {
             if (!validation.Invoke())
             {
-                throw new ValidationException(string.Format(error, args));
+                Fail(error, args);
             }
+        }
+
+        protected static void Fail(string error, object[] args)
+        {
+            throw new ValidationException(string.Format(error, args));
         }
 
         protected T GetValue<T>()

@@ -67,6 +67,30 @@ namespace Validation.Validators
             return this;
         }
 
+        public EnumerableValidator HaveLengthBetween(int minLength, int maxLength, string error = DefaultError, params object[] args)
+        {
+            if (values == null)
+            {
+                Fail(error, args);
+            }
+
+            var count = values?.Count();
+            Execute(() => count > minLength && count < maxLength, error, args);
+            return this;
+        }
+
+        public EnumerableValidator HaveLengthBetweenOrEqualTo(int minLength, int maxLength, string error = DefaultError, params object[] args)
+        {
+            if (values == null)
+            {
+                Fail(error, args);
+            }
+
+            var count = values?.Count();
+            Execute(() => count >= minLength && count <= maxLength, error, args);
+            return this;
+        }
+
         public EnumerableValidator NotBe(IEnumerable<object> otherValues, string error = DefaultError, params object[] args)
         {
             Execute(() => values != otherValues, error, args);
