@@ -13,69 +13,69 @@ namespace Validation.Validators
             values = value;
         }
 
-        public EnumerableValidator Be(IEnumerable<object> otherValues, string error = DefaultError)
+        public EnumerableValidator Be(IEnumerable<object> otherValues, string error = DefaultError, params object[] args)
         {
-            Execute(() => values == otherValues, error);
+            Execute(() => values == otherValues, error, args);
             return this;
         }
 
-        public EnumerableValidator BeEmpty(string error = DefaultError)
+        public EnumerableValidator BeEmpty(string error = DefaultError, params object[] args)
         {
-            Execute(() => (values?.Count() ?? -1) == 0, error);
+            Execute(() => (values?.Count() ?? -1) == 0, error, args);
             return this;
         }
 
-        public EnumerableValidator BeNullOrEmpty(string error = DefaultError)
+        public EnumerableValidator BeNullOrEmpty(string error = DefaultError, params object[] args)
         {
-            Execute(() => (values?.Count() ?? 0) == 0, error);
+            Execute(() => (values?.Count() ?? 0) == 0, error, args);
             return this;
         }
 
-        public EnumerableValidator HaveCount(int count, string error = DefaultError)
+        public EnumerableValidator HaveCount(int count, string error = DefaultError, params object[] args)
         {
-            Execute(() => values?.Count() == count, error);
+            Execute(() => values?.Count() == count, error, args);
             return this;
         }
 
-        public EnumerableValidator HaveCountGreaterOrEqualTo(int count, string error = DefaultError)
+        public EnumerableValidator HaveCountGreaterOrEqualTo(int count, string error = DefaultError, params object[] args)
         {
-            Execute(() => values?.Count() >= count, error);
+            Execute(() => values?.Count() >= count, error, args);
             return this;
         }
 
-        public EnumerableValidator HaveCountGreaterThan(int count, string error = DefaultError)
+        public EnumerableValidator HaveCountGreaterThan(int count, string error = DefaultError, params object[] args)
         {
-            Execute(() => values?.Count() > count, error);
+            Execute(() => values?.Count() > count, error, args);
             return this;
         }
 
-        public EnumerableValidator HaveCountLessOrEqualTo(int count, string error = DefaultError)
+        public EnumerableValidator HaveCountLessOrEqualTo(int count, string error = DefaultError, params object[] args)
         {
-            Execute(() => values?.Count() <= count, error);
+            Execute(() => values?.Count() <= count, error, args);
             return this;
         }
 
-        public EnumerableValidator HaveCountLessThan(int count, string error = DefaultError)
+        public EnumerableValidator HaveCountLessThan(int count, string error = DefaultError, params object[] args)
         {
-            Execute(() => values?.Count() < count, error);
+            Execute(() => values?.Count() < count, error, args);
             return this;
         }
 
-        public EnumerableValidator NotBe(IEnumerable<object> otherValues, string error = DefaultError)
+        public EnumerableValidator NotBe(IEnumerable<object> otherValues, string error = DefaultError, params object[] args)
         {
-            Execute(() => values != otherValues, error);
+            Execute(() => values != otherValues, error, args);
             return this;
         }
 
-        public EnumerableValidator NotBeEmpty(string error = DefaultError)
+        public EnumerableValidator NotBeEmpty(string error = DefaultError, params object[] args)
         {
-            Execute(() => values?.Count() > 0, error);
+            Execute(() => values?.Count() > 0, error, args);
             return this;
         }
 
-        public EnumerableValidator NotBeNullOrEmpty(string error = DefaultError)
+        public EnumerableValidator NotBeNullOrEmpty(string error = DefaultError, params object[] args)
         {
-            Execute(() => (values?.Count() ?? -1) > 0, error);
+            Execute(() => (values?.Count() ?? -1) > 0, error, args);
             return this;
         }
     }

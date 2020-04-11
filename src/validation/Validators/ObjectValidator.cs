@@ -13,35 +13,35 @@ namespace Validation.Validators
             this.value = value;
         }
 
-        public ObjectValidator Be(object otherValue, string error = DefaultError)
+        public ObjectValidator Be(object otherValue, string error = DefaultError, params object[] args)
         {
-            Execute(() => value == otherValue, error);
+            Execute(() => value == otherValue, error, args);
             return this;
         }
 
-        public ObjectValidator BeNull(string error = DefaultError)
+        public ObjectValidator BeNull(string error = DefaultError, params object[] args)
         {
-            Execute(() => GetValue<object>() == null, error);
+            Execute(() => GetValue<object>() == null, error, args);
             return this;
         }
 
-        public ObjectValidator NotBe(object otherValue, string error = DefaultError)
+        public ObjectValidator NotBe(object otherValue, string error = DefaultError, params object[] args)
         {
-            Execute(() => value != otherValue, error);
+            Execute(() => value != otherValue, error, args);
             return this;
         }
 
-        public ObjectValidator NotBeNull(string error = DefaultError)
+        public ObjectValidator NotBeNull(string error = DefaultError, params object[] args)
         {
-            Execute(() => GetValue<object>() != null, error);
+            Execute(() => GetValue<object>() != null, error, args);
             return this;
         }
 
-        internal void Execute(Func<bool> validation, string error)
+        internal void Execute(Func<bool> validation, string error, params object[] args)
         {
             if (!validation.Invoke())
             {
-                throw new ValidationException(error);
+                throw new ValidationException(string.Format(error, args));
             }
         }
 

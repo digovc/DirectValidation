@@ -8,27 +8,27 @@
         {
         }
 
-        public BooleanValidator Be(bool otherValue, string error = DefaultError)
+        public BooleanValidator Be(bool otherValue, string error = DefaultError, params object[] args)
         {
-            Execute(() => GetValue<bool>() == otherValue, error);
+            Execute(() => GetValue<bool>() == otherValue, error, args);
             return this;
         }
 
-        public BooleanValidator BeFalse(string error = DefaultError)
+        public BooleanValidator BeFalse(string error = DefaultError, params object[] args)
         {
-            Execute(() => !GetValue<bool>(), error);
+            Execute(() => !GetValue<bool>(), error, args);
             return this;
         }
 
-        public BooleanValidator BeTrue(string error = DefaultError)
+        public BooleanValidator BeTrue(string error = DefaultError, params object[] args)
         {
-            Execute(() => GetValue<bool>(), error);
+            Execute(() => GetValue<bool>(), error, args);
             return this;
         }
 
-        public BooleanValidator NotBe(bool otherValue, string error = DefaultError)
+        public BooleanValidator NotBe(bool otherValue, string error = DefaultError, params object[] args)
         {
-            Execute(() => GetValue<bool>() != otherValue, error);
+            Execute(() => GetValue<bool>() != otherValue, error, args);
             return this;
         }
     }
