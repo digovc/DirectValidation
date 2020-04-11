@@ -8,39 +8,51 @@
         {
         }
 
-        public ObjectValidator BeGreaterOrEqualTo(decimal value, string error = DefaultError)
+        public NumberValidator Be(decimal value, string error = DefaultError)
+        {
+            Execute(() => GetValue<decimal>() == value, error);
+            return this;
+        }
+
+        public NumberValidator BeGreaterOrEqualTo(decimal value, string error = DefaultError)
         {
             Execute(() => GetValue<decimal>() >= value, error);
             return this;
         }
 
-        public ObjectValidator BeGreaterThan(decimal value, string error = DefaultError)
+        public NumberValidator BeGreaterThan(decimal value, string error = DefaultError)
         {
             Execute(() => GetValue<decimal>() > value, error);
             return this;
         }
 
-        public ObjectValidator BeLessOrEqualTo(decimal value, string error = DefaultError)
+        public NumberValidator BeLessOrEqualTo(decimal value, string error = DefaultError)
         {
             Execute(() => GetValue<decimal>() <= value, error);
             return this;
         }
 
-        public ObjectValidator BeLessThan(decimal value, string error = DefaultError)
+        public NumberValidator BeLessThan(decimal value, string error = DefaultError)
         {
             Execute(() => GetValue<decimal>() < value, error);
             return this;
         }
 
-        public ObjectValidator BeNegative(string error = DefaultError)
+        public NumberValidator BeNegative(string error = DefaultError)
         {
             Execute(() => GetValue<decimal>() < 0, error);
             return this;
         }
 
-        public ObjectValidator BePositive(string error = DefaultError)
+        public NumberValidator BePositive(string error = DefaultError)
         {
             Execute(() => GetValue<decimal>() >= 0, error);
+            return this;
+        }
+
+        public NumberValidator NotBe(decimal value, string error = DefaultError)
+        {
+            Execute(() => GetValue<decimal>() != value, error);
             return this;
         }
     }

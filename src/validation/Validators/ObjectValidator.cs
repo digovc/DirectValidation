@@ -13,9 +13,9 @@ namespace Validation.Validators
             this.value = value;
         }
 
-        public ObjectValidator Be(object value, string error = DefaultError)
+        public ObjectValidator Be(object otherValue, string error = DefaultError)
         {
-            Execute(() => GetValue<object>() == value, error);
+            Execute(() => value == otherValue, error);
             return this;
         }
 
@@ -25,9 +25,9 @@ namespace Validation.Validators
             return this;
         }
 
-        public ObjectValidator NotBe(object value, string error = DefaultError)
+        public ObjectValidator NotBe(object otherValue, string error = DefaultError)
         {
-            Execute(() => GetValue<object>() != value, error);
+            Execute(() => value != otherValue, error);
             return this;
         }
 

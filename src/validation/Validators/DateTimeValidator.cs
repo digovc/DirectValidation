@@ -10,6 +10,12 @@ namespace Validation.Validators
         {
         }
 
+        public DateTimeValidator Be(DateTime value, string error = DefaultError)
+        {
+            Execute(() => GetValue<DateTime>() == value, error);
+            return this;
+        }
+
         public DateTimeValidator BeAfter(DateTime value, string error = DefaultError)
         {
             Execute(() => GetValue<DateTime>() > value, error);
@@ -37,6 +43,12 @@ namespace Validation.Validators
         public DateTimeValidator BeSameDateAs(DateTime value, string error = DefaultError)
         {
             Execute(() => GetValue<DateTime>().ToString("yyyy/MM/dd") == value.ToString("yyyy/MM/dd"), error);
+            return this;
+        }
+
+        public DateTimeValidator NotBe(DateTime value, string error = DefaultError)
+        {
+            Execute(() => GetValue<DateTime>() != value, error);
             return this;
         }
     }

@@ -10,6 +10,12 @@ namespace Validation.Validators
         {
         }
 
+        public StringValidator Be(string value, string error = DefaultError)
+        {
+            Execute(() => GetValue<string>() == value, error);
+            return this;
+        }
+
         public StringValidator BeEmpty(string error = DefaultError)
         {
             Execute(() => GetValue<string>() == string.Empty, error);
@@ -49,6 +55,12 @@ namespace Validation.Validators
         public StringValidator Match(string pattern, string error = DefaultError)
         {
             Execute(() => Regex.Match(GetValue<string>(), pattern).Success, error);
+            return this;
+        }
+
+        public StringValidator NotBe(string value, string error = DefaultError)
+        {
+            Execute(() => GetValue<string>() != value, error);
             return this;
         }
 

@@ -13,6 +13,12 @@ namespace Validation.Validators
             values = value;
         }
 
+        public EnumerableValidator Be(IEnumerable<object> otherValues, string error = DefaultError)
+        {
+            Execute(() => values == otherValues, error);
+            return this;
+        }
+
         public EnumerableValidator BeEmpty(string error = DefaultError)
         {
             Execute(() => (values?.Count() ?? -1) == 0, error);
@@ -52,6 +58,12 @@ namespace Validation.Validators
         public EnumerableValidator HaveCountLessThan(int count, string error = DefaultError)
         {
             Execute(() => values?.Count() < count, error);
+            return this;
+        }
+
+        public EnumerableValidator NotBe(IEnumerable<object> otherValues, string error = DefaultError)
+        {
+            Execute(() => values != otherValues, error);
             return this;
         }
 
