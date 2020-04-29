@@ -3,18 +3,13 @@ name: validation-library
 resources:
   - repo: self
 
-variables:
-  Source: "https://pkgs.dev.azure.com/orium/02be0e0d-764b-48a1-ad04-755db7ab0d80/_packaging/MaisPedidos/nuget/v3/index.json"
-
 trigger:
   branches:
     include:
       - "master"
 
 steps:
-  - task: NuGetAuthenticate@0
-    displayName: Authenticate
-  - pwsh: dotnet pack --configuration release src/validation/Validation.csproj
+  - pwsh: dotnet pack -c release src/validation/Validation.csproj
     displayName: Pack
-  - pwsh: dotnet nuget push --source $(Source) -k az src/validation/bin/release/*.nupkg
+  - pwsh: dotnet nuget push src/validation/bin/Release/netstandard2.1/publish/DirectValidation.*.nupkg -k oy2bqfsbscpnsth25hzqoyytev5p5xxe5e2uv564t2ywca -s https://api.nuget.org/v3/index.json --skip-duplicate
     displayName: Push
