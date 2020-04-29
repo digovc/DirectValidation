@@ -13,7 +13,7 @@ This library is inspired by two great libraries: [FluentValidation](https://flue
 
 With **DirectValidation** you can use a simple and direct code style to validate your variables, properties, etc, without worry about nesting your code with _if, else_. Just call your validation directly.
 
-We use the _fail first_ design. This means that if your validation don't pass a exception are thrown immediately:
+We use the _fail first_ design. This means that if your validation don't pass an exception are thrown immediately:
 
 ```csharp
 using Validation;
@@ -49,4 +49,4 @@ I implement most validations found in [FluentValidation](https://fluentvalidatio
 
 ### License
 
-DirectValidation has adopted **Apache License**, so you can use this freely to all purpose.
+DirectValidation has adopted **Apache License**, so you can use this freely to all-purpose.
