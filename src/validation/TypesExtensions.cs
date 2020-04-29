@@ -32,6 +32,8 @@ namespace Validation
 
         public static StringValidator Validate(this string value) => new StringValidator(value);
 
+        public static GuidValidator Validate(this Guid value) => new GuidValidator(value);
+
         public static EnumerableValidator Validate(this IEnumerable<object> value) => new EnumerableValidator(value);
     }
 }

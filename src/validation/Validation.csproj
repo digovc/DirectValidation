@@ -4,12 +4,27 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Validation</AssemblyName>
     <RootNamespace>Validation</RootNamespace>
-    <Version>4.0.2</Version>
+    <Version>5.1.0</Version>
+    <PackageId>DirectValidation</PackageId>
+    <Authors>Rodrigo Daros</Authors>
+    <Company>Orium</Company>
+    <Product>DirectValidation</Product>
+    <Description>A simple library in .NET Standard (C#) to validate your staff without nesting your code.</Description>
+    <PackageProjectUrl>https://github.com/digovc/DirectValidation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/digovc/DirectValidation</RepositoryUrl>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
