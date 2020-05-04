@@ -1,6 +1,6 @@
 # DirectValidation
 
-A simple library write in ,NET (C#) to validate your staff without nesting your code.
+A simple library write in .NET (C#) to validate your staff without nesting your code.
 
 ```csharp
 using Validation;
