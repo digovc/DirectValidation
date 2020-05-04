@@ -19,7 +19,7 @@ We use the _fail first_ design. This means that if your validation don't pass an
 using Validation;
 
 var myValue = "foo";
-myValue.Validate().Be("bar", "myValue is not foo.");
+myValue.Validate().Be("bar", "myValue is not bar.");
 ```
 
 ### Get Started
