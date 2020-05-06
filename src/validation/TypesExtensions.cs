@@ -6,6 +6,8 @@ namespace Validation
 {
     public static class TypesExtensions
     {
+        public static EnumValidator Validate(this Enum value) => new EnumValidator(value);
+
         public static ObjectValidator Validate(this object value) => new ObjectValidator(value);
 
         public static BooleanValidator Validate(this bool value) => new BooleanValidator(value);
