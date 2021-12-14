@@ -11,5 +11,5 @@ trigger:
 steps:
   - pwsh: dotnet pack -c release src/validation/Validation.csproj
     displayName: Pack
-  - pwsh: dotnet nuget push src/validation/bin/release/DirectValidation.*.nupkg -k oy2bqfsbscpnsth25hzqoyytev5p5xxe5e2uv564t2ywca -s https://api.nuget.org/v3/index.json --skip-duplicate
+  - pwsh: dotnet nuget push src/validation/bin/release/DirectValidation.*.nupkg -k $(nuget-token) -s https://api.nuget.org/v3/index.json --skip-duplicate
     displayName: Push
